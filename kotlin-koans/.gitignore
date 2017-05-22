@@ -5,3 +5,5 @@ workspace.xml
 build
 local.properties
 lib
+.idea
+*jar
