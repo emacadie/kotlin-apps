@@ -1,6 +1,6 @@
 package ii_collections
 
-fun example1(list: List<Int>) {
+fun example1( list: List< Int > ) {
 
     // If a lambda has exactly one parameter, that parameter can be accessed as 'it'
     val positiveNumbers = list.filter { it > 0 }
@@ -8,14 +8,17 @@ fun example1(list: List<Int>) {
     val squares = list.map { it * it }
 }
 
-fun Shop.getCitiesCustomersAreFrom(): Set<City> {
+fun Shop.getCitiesCustomersAreFrom(): Set< City > {
     // Return the set of cities the customers are from
-    todoCollectionTask()
+    // todoCollectionTask()
+    return this.customers.map { it.city }.toSet()
 }
 
-fun Shop.getCustomersFrom(city: City): List<Customer> {
+fun Shop.getCustomersFrom( city: City ): List< Customer > {
     // Return a list of the customers who live in the given city
-    todoCollectionTask()
+    val listOfCities = this.customers.filter { it.city == city }
+    println( "listOfCities is a ${listOfCities.javaClass.name}" )
+    return this.customers.filter { it.city == city }
 }
 
 
