@@ -5,32 +5,32 @@ import ii_collections.*
 //products
 val idea = Product("IntelliJ IDEA Ultimate", 199.0)
 val reSharper = Product("ReSharper", 149.0)
-val dotTrace = Product("DotTrace", 159.0)
+val dotTrace  = Product("DotTrace", 159.0)
 val dotMemory = Product("DotTrace", 129.0)
-val dotCover = Product("DotCover", 99.0)
-val appCode = Product("AppCode", 99.0)
-val phpStorm = Product("PhpStorm", 99.0)
-val pyCharm = Product("PyCharm", 99.0)
-val rubyMine = Product("RubyMine", 99.0)
-val webStorm = Product("WebStorm", 49.0)
-val teamCity = Product("TeamCity", 299.0)
-val youTrack = Product("YouTrack", 500.0)
+val dotCover  = Product("DotCover", 99.0)
+val appCode   = Product("AppCode", 99.0)
+val phpStorm  = Product("PhpStorm", 99.0)
+val pyCharm   = Product("PyCharm", 99.0)
+val rubyMine  = Product("RubyMine", 99.0)
+val webStorm  = Product("WebStorm", 49.0)
+val teamCity  = Product("TeamCity", 299.0)
+val youTrack  = Product("YouTrack", 500.0)
 
 //customers
-val lucas = "Lucas"
+val lucas  = "Lucas"
 val cooper = "Cooper"
 val nathan = "Nathan"
-val reka = "Reka"
+val reka   = "Reka"
 val bajram = "Bajram"
-val asuka = "Asuka"
-val riku = "Riku"
+val asuka  = "Asuka"
+val riku   = "Riku"
 
 //cities
-val Canberra = City("Canberra")
+val Canberra  = City("Canberra")
 val Vancouver = City("Vancouver")
-val Budapest = City("Budapest")
-val Ankara = City("Ankara")
-val Tokyo = City("Tokyo")
+val Budapest  = City("Budapest")
+val Ankara    = City("Ankara")
+val Tokyo     = City("Tokyo")
 
 fun customer(name: String, city: City, vararg orders: Order) = Customer(name, city, orders.toList())
 fun order(vararg products: Product, isDelivered: Boolean = true) = Order(products.toList(), isDelivered)

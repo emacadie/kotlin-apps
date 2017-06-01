@@ -10,7 +10,18 @@ fun example8() {
     negative == listOf(-4, -11)
 }
 
-fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> {
+fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set< Customer > {
     // Return customers who have more undelivered orders than delivered
-    todoCollectionTask()
+    val ( moreDelivered, moreUndelivered ) =
+            this.customers.partition {
+                it.orders.filter { it.isDelivered }.size >= it.orders.filter { !it.isDelivered }.size
+            }
+    println( "moreDelivered is a ${moreDelivered.javaClass.name}" )
+    // todoCollectionTask()
+    // that's kind of ugly, but on the other hand
+    // https://github.com/shivan42/kotlin-koans-solution/blob/master/src/ii_collections/_21_Partition_.kt
+    // ain't too hot either (IMHO)
+    // I guess it never occurred to me that your predicate can be a multi-line routine
+    // In Clojure, you mostly see single-line anonymous functions
+    return moreUndelivered.toSet()
 }

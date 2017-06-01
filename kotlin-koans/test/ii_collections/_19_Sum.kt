@@ -8,6 +8,7 @@ import org.junit.Test
 
 class _19_Sum {
     @Test fun testGetTotalOrderPrice() {
+        // TODO: what do the double exclamation marks mean?
         assertEquals(148.0, customers[nathan]!!.getTotalOrderPrice(), 0.001)
     }
 
