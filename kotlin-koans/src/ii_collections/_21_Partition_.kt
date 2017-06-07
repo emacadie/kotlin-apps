@@ -13,9 +13,9 @@ fun example8() {
 fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set< Customer > {
     // Return customers who have more undelivered orders than delivered
     val ( moreDelivered, moreUndelivered ) =
-            this.customers.partition {
-                it.orders.filter { it.isDelivered }.size >= it.orders.filter { !it.isDelivered }.size
-            }
+        this.customers.partition {
+            it.orders.filter { it.isDelivered }.size >= it.orders.filter { !it.isDelivered }.size
+        }
     println( "moreDelivered is a ${moreDelivered.javaClass.name}" )
     // todoCollectionTask()
     // that's kind of ugly, but on the other hand
