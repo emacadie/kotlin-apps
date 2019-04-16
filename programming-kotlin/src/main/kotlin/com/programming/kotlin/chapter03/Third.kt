@@ -22,7 +22,7 @@ fun tryToCreatePeopleWithBadFirstNames(): Unit {
 
     } catch ( e: Exception ) {
         logger.info { "Exception: " + e.javaClass.name }
-        logger.info { e.message }
+        logger.info { "Message: " + e.message }
     }
     logger.info{ "It looks like our validating constructor only catches the first invalid argument and ignores the rest" }
 }

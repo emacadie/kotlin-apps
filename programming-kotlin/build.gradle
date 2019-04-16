@@ -54,9 +54,9 @@ dependencies {
 }
 
 sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
+    main.java.srcDirs   += 'src/main/kotlin'
     main.kotlin.srcDirs += 'src/main/myKotlin'
-    main.java.srcDirs += 'src/main/myJava'
+    main.java.srcDirs   += 'src/main/myJava'
 }
 
 
