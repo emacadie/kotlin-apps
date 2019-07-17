@@ -42,12 +42,12 @@ jar {
   from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
-task wrapper(type: Wrapper) {
+wrapper {
   gradleVersion = "4.10.2"
 }
 // gradle --build-file other.gradle 
 // gradle --build-file other.gradle  -PmainClass=com.programming.kotlin.chapter02.SecondKt
 // gradle --build-file other.gradle  -PmainClass=com.programming.kotlin.chapter02.SecondKt
 // gradle --build-file other.gradle  -PmainClass=com.programming.kotlin.chapter01.Program
-// gradle --build-file other.gradle  -PmainClass=com.programming.kotlin.chapter03.ThirdKt
+// gradle run --build-file other.gradle  -PmainClass=com.programming.kotlin.chapter03.ThirdKt
 
