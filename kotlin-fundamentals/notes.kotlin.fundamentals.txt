@@ -1,0 +1,45 @@
+Installation/intro
+Object-oriented features
+Functional language features
+Higher order functions
+Filtering and mapping data
+Nullability
+Working with infinite streams
+Improved support for generics
+
+Installing Kotlin: I just use gradle
+Or sdkman
+"sdkman current"
+running "kotlinc" gives a repl
+leave repl with ":quit"
+":help" for help
+Files have a .kt extension
+In Kotlin: argument name, then type
+fun main(args: Array< String > ) {
+    print( "Hello world" )
+}
+Don't need a class. No need to specify a return. 
+Return void is done w/Unit
+
+compile with 
+kotlinc Hello.kt
+Give you HelloKt.class
+kotlinc hello.kt -include-runtime -d hello.jar
+This tells the compiler to include the runtime
+Then you can run the jar w/java -jar hello.jar
+Easy to distrubute
+
+What is Kotlin?
+JVM language
+Object Oriented
+Functional
+less ceremony than Java
+
+Creating a function outside of a class did not work for me
+In Person class:
+var Name: String = ""
+name of var, then the type
+it must be initialized
+
+
+

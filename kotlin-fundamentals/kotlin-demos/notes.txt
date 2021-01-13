@@ -1,0 +1,9 @@
+https://deepak-v.medium.com/kotlin-beginner-to-advance-build-real-command-line-tool-using-kotlinx-cli-608bbc6d9a3
+In dir for the main project:
+gradle cli-app:clean
+gradle cli-app:run
+
+You could do this:
+gradle clean cli-app:jar## Run jar
+java -jar cli-app/build/libs/cli-app.jar
+

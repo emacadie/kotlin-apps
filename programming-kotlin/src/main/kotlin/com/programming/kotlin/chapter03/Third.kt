@@ -30,7 +30,7 @@ fun tryToCreatePeopleWithBadFirstNames(): Unit {
 
 fun main( args: Array< String > ) {
     logger.info { "Hello world" }
-    println( "Hello World!" )
+    println( "Hello World! in Third" )
     useBookPerson()
     tryToCreatePeopleWithBadFirstNames()
 }

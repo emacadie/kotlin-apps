@@ -1,0 +1,3 @@
+https://github.com/MicroUtils/kotlin-logging
+
+https://www.scalyr.com/blog/getting-started-quickly-kotlin-logging/
