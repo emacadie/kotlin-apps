@@ -1,5 +1,5 @@
-import info.shelfunit.tutorial.Person
-import info.shelfunit.tutorial.SecondPerson
+import info.shelfunit.tutorial.module02.Person
+import info.shelfunit.tutorial.module02.SecondPerson
 
 fun main(args: Array<String>) {
     println("Hello World!")

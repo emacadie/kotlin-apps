@@ -1,3 +1,5 @@
+Going w/ project Simple002
+
 Installation/intro
 Object-oriented features
 Functional language features
@@ -27,7 +29,7 @@ Give you HelloKt.class
 kotlinc hello.kt -include-runtime -d hello.jar
 This tells the compiler to include the runtime
 Then you can run the jar w/java -jar hello.jar
-Easy to distrubute
+Easy to distribute
 
 What is Kotlin?
 JVM language
@@ -40,6 +42,168 @@ In Person class:
 var Name: String = ""
 name of var, then the type
 it must be initialized
+
+No "new" keyword
+
+var is mutable, val is not
+
+Constructor in class definition:
+
+// This has a constructor in the definition
+// we do not need to put fName in the class
+class SecondPerson ( var fName: String )  {
+}
+What if you want multiple constructors?
+
+String interpolation in Kotlin:
+println( "Display: $fName"  )
+
+public is default behavior in Kotlin
+
+I am using PersonRunner because I want to work with classes
+
+He says there is less ceremony than in Java, but I feel like I am spending a lot of time dealing w/IntelliJ
+
+I hope that "module" does not have some meaning in Kotlin.
+
+Module03:
+Less ceremony,
+Exception handling is better
+Language features: immutable types, string interpolation, looping constructs, expressions, ranges
+
+Is not using classes a common thing?
+How are things arranged?
+Kotlin will make a class around our function
+For now, I think I will stick with classes. Is not working with classes how Kotlin dev do things?
+Maybe by using classes I am missing the point, but that is what I am used to.
+
+He goes through all this trouble. Isn't that the point of Gradle?
+
+var is variable
+val is immutable
+Immutability is good
+
+Just doing things like q.Answer = "Hh" is like adding a Java property
+Kotlin creates getters and setters. What about validation for your getters?
+If a function does not return anything, can we skip saying it returns "Unit"?
+
+Interpolation for a local variable: println( "Hello $name" )
+Calling from elsewhere: println( "Hello ${person.name}" )
+
+You can do a string comparison with "=="
+
+You can set a variable like this:
+var message2 = if ( q.Answer == q.CorrectAnswer ) {
+            "You were correct, but not as smart as you think you are"
+        } else {
+            "Thank you for not being a mindless conformist"
+        }
+so "if" is an expression that can return a var or val
+
+If you try
+q.Answer = null
+You get this message:
+"Null can not be a value of a non-null type String"
+So you cannot make something null unless you tell the compiler it can be null. Add a question mark
+This cannot be null:
+var Answer:String = "Something"
+This can be null:
+var Answer:String? = null
+You can also do that when you instantiate a class:
+val q:Question? = Question()
+But then you have to either test
+or when you use q, do this:
+q?.Answer = "33"
+q?.display()
+Groovy does the same thing
+so it's safe
+so to review:
+null-safe instantiation:
+val q:Question? = Question()
+null-safe methods:
+q?.display()
+
+No "switch" in Kotlin
+Has a "when"
+
+if ( Answer == CorrectAnswer ) {
+    print( "You are correct" )
+} else {
+    print( "Try again" )
+}
+same as:
+when ( Answer ) {
+    CorrectAnswer -> print( "You are correct, sir" )
+    else -> print( "Try again" )
+}
+
+also:
+when ( Answer ) {
+    CorrectAnswer -> print( "You are correct, sir" )
+    else -> {
+        print( "Try again" )
+        print( "; we can do multiple lines" )
+    }
+}
+
+"try" is also an expression
+val number:Int = try {
+    Integer.parseInt( q.Answer )
+} catch ( e:NumberFormatException ) {
+    -1
+}
+or make number possible null:
+val number:Int? = try {
+    Integer.parseInt( q.Answer )
+} catch ( e:NumberFormatException ) {
+    null
+}
+
+Kotlin has "while" and "do...while"
+For loops are a bit different
+We have ranges
+var myvalues = 1..10
+for( i in 1..10 ) {
+    println( "i is $i" )
+}
+prints 1 through 10
+for( i in 1..10 step 2 ) {
+    println( "i is $i" )
+}
+This will print the odd numbers
+We can also go backwards
+for ( i in 10 downTo 1 step 2 ) {
+}
+Those are inclusive ranges: includes beginning and end
+java usually simulates ranges without ending: i = 0; i < 10
+To not include the end, use "until"
+for ( i in 1 until 10 )
+That is a half-closed range
+To create a list, use "listOf" function
+var numbers = listOf( 1, 2, 3, 4, 5 )
+for ( i in numbers ) {
+}
+Or
+for ( ( index, element ) in numbers.withIndex() ) {
+    println( "$element at $index" )
+}
+We can use for over maps
+var ages = TreeMap< String, Int >()
+ages[ "Kevin" ] = 55
+ages[ "Sam" ] = 24
+ages[ "Alex" ] = 24
+ages[ "Henry" ] = 26
+for ( ( name, age ) in ages ) {
+    println( "$name is $age" )
+}
+I think TreeMap keeps things in order
+
+You can range over strings, character values, anything that implements the Comparable interface
+
+He mentions that Java7 has try-with-resources statement (which closes resources afterwards, so no need for finally)
+Kotlin has something similar
+We will get to that later
+
 
 
 

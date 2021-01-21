@@ -36,7 +36,8 @@ application {
     // mainClassName = "com.programming.kotlin.chapter03.ThirdKt"
     // mainClass.set( "com.programming.kotlin.chapter02.SecondKt" )
     // mainClass.set( "com.programming.kotlin.chapter03.ThirdKt" )
-    mainClass.set( "info.shelfunit.tutorial.PersonRunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module02.PersonRunnerKt" )
+    mainClass.set( "info.shelfunit.tutorial.module03.Module3RunnerKt" )
 
 }
 val compileKotlin: KotlinCompile by tasks
