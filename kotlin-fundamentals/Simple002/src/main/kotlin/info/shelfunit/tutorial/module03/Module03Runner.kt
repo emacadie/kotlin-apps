@@ -1,10 +1,9 @@
 package info.shelfunit.tutorial.module03
 
-import info.shelfunit.tutorial.module02.doSomeStuff
 import java.io.FileReader
 import java.util.TreeMap
 
-class Module3Runner {
+class Module03Runner {
     fun doSomeStuff(): Unit {
         val q = Question()
         q.Answer = "22"
@@ -65,8 +64,8 @@ class Module3Runner {
 
 fun main( args: Array< String > ) {
     println( "args: " + args )
-    println( "Hello World! from Module3Runner" )
-    val mod3 = Module3Runner()
+    println( "Hello World! from Module03Runner" )
+    val mod3 = Module03Runner()
     mod3.doSomeStuff()
-    mod3.workWithExceptions()
+    // mod3.workWithExceptions()
 }

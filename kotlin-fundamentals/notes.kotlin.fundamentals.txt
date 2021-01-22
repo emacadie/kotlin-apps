@@ -204,6 +204,104 @@ He mentions that Java7 has try-with-resources statement (which closes resources 
 Kotlin has something similar
 We will get to that later
 
+chapter 4: Functions in Kotlin (not the "functional" part)
+Functions do not need to be part of a class
+functions introduced by "fun" keyword
+can have default parameter values
+can have named parameters
+can "extend" existing types (like metaprogramming?)
+
+fun connect( addr: URI ) : Boolean {
+}
+parameter name followed by parameter type
+If there is no return type, you can just leave it off
+
+functions can be in the default package
+
+function expressions:
+functions that are a single line of code
+
+fun max( a: Int, b:Int ): Int = if ( a > b ) a else b
+
+Even if you have a Kotlin function in default package, you can still call it Java
+Java class info.shelfunit.tutorial.AppRunner calls ProgramKt.newDisplay as a static function
+
+You can give your Kotlin class a better name w/@file:JvmName( INSERT_STRING_HERE ) annotation
+
+Default parameters
+Like Groovy
+fun connect( addr: URI, useProxy: Boolean = true ) : Boolean
+So you can just call it w/only the first param
+So if you add a param to a function later, your code will not break
+Java does not have default params, so you have to call all the params
+or add @JvmOverloads
+compile will generate extra functions
+
+named parameters: You can use names, and change order
+so for fun connect( addr: URI, useProxy: Boolean = true ) : Boolean
+connect( URI( someAddress ), useProxy = false )
+You cannot mix named and positional args
+This can be good if you have to call a function with a lot of params
+
+Extension functions:
+Is this like metaprogramming?
+or method injection in groovy
+In Kotlin, you can add static functions
+We could just make our own classes w/static functions
+We can cut down on use of utility classes
+Makes code easier to read
+Here is a function:
+fun replaceMultipleWhitespace( value: String ) : String {
+    var regex = Regex( "\\s+" )
+    return regex.replace( value, " " )
+}
+Now add it to String:
+fun String.replaceMultipleWhitespace( value: String ) : String {
+    var regex = Regex( "\\s+" )
+    return regex.replace( value, " " )
+}
+You could do it this way:
+fun String.replaceMultipleWhitespace( ) : String {
+    var regex = Regex( "\\s+" )
+    return regex.replace( this, " " )
+}
+
+Infix functions:
+Member or extension parameter,
+has a single parameter
+marked w/infix keyword
+infix fun Header.plus( Header other ) : Header { ... }
+h1, h2, h3: Header
+h3 = h1 plus h2
+no need for brackets
+
+Operator overloading:
+only a small set can be overloaded:
+Unary: + - ! ++ --
+Binary: + - * / %
++= -= *= /= %=
+in [] () == !=
+> < >= <=
+
+Then we could make an infix function called, say, "plus"
+and use "operator" keyword
+So I guess the name of the function has to be the same as the name of the operator
+Don't over use overloading.
+You'll get.....wait for it.....overloaded
+good for DSLs
+
+allows tail-recursive functions
+functional languages use a lot of recursion
+I thought the JVM could not do tail recursion
+uses "tailrec" keyword
+They must have the correct form
+Kotlin optimizes away the recursion
+It turns it into a loop
+
+
+
+
+
 
 
 
