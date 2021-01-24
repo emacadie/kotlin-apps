@@ -514,3 +514,49 @@ Student.createPostgrad( "Doctor" )
 Our Person class is getting complicated: companion objects, companion object implementing an interface,
 constructors w/optional args
 
+Module 7: High Level Functions
+Functions as first-class citizens
+Functions can be sent as parameters to functions, and functions can return functions
+Can store functions in collections
+
+strategy pattern: allows an algorithm's behavior to be selected at runtime
+In OO, implemented w/interface
+Or you can just pass a function
+We will do it w/OO and w/functions
+
+Strategy pattern in OO
+interface Process { fun execute() }
+fun calculateResult( a : Int, b : Int, object : Process ) {
+    override fun execute( value : Int ) {
+        println( value )
+    }
+}
+
+functional style:
+fun calculateResult( a : Int, b : Int, func: ( Int ) -> Unit ) {
+    // calculate using a and b
+    // use the result
+    func( result )
+}
+You can call this in a couple of ways:
+calculateResult( 1, 2, { s -> print( s ) } ) // passing a lambda
+calculateResult( 1, 2 ) { s -> print( s ) }
+We can also do this w/using default param name "it"
+calculateResult( 1, 2, { s -> print( s ) } )
+calculateResult( 1, 2, { print( it ) } )
+calculateResult( 1, 2 ) { s -> print( s ) }
+calculateResult( 1, 2 ) { print( it ) }
+I assume this only works w/functions that have only one parameter
+Or function reference (must be inside parens)
+calculateResult( 1, 2, ::print )
+
+Java 8 has lambdas
+Kotlin lambdas can mutate values
+
+With and Apply:
+used to make certain operations more natural
+Look like language keywords
+They are actually methods in Kotlin std lib whose last parameter is a lambda
+
+
+

@@ -33,9 +33,7 @@ tasks.withType<KotlinCompile>() {
 
 application {
     // mainClassName = "cli.app.AppKt"
-    // mainClassName = "com.programming.kotlin.chapter03.ThirdKt"
-    // mainClass.set( "com.programming.kotlin.chapter02.SecondKt" )
-    // mainClass.set( "com.programming.kotlin.chapter03.ThirdKt" )
+    // mainClass.set( "info.shelfunit.tutorial.AppRunner" )
     // mainClass.set( "info.shelfunit.tutorial.module02.PersonRunnerKt" )
     // mainClass.set( "info.shelfunit.tutorial.module03.Module03RunnerKt" )
     // mainClass.set( "info.shelfunit.tutorial.module04.Module04RunnerKt" )
@@ -43,8 +41,9 @@ application {
     // mainClass.set( "info.shelfunit.tutorial.module06.Module06RunnerKt" )
     // Program has a main function in a companion object
     // its main fun is annotated w/@JvmStatic and must be called as "Program" NOT "ProgramKt"
-    mainClass.set( "info.shelfunit.tutorial.module06.Program" )
-    // mainClass.set( "info.shelfunit.tutorial.AppRunner" )
+    // mainClass.set( "info.shelfunit.tutorial.module06.Program" )
+    mainClass.set( "info.shelfunit.tutorial.module07.Module07RunnerKt" )
+
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
