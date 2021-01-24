@@ -457,12 +457,60 @@ val aMeeting = Meeting( "A Meeting", "London" )
 // we can copy a class and also change one of the fields
 val anotherMeeting = aMeeting.copy( location = "New York" )
 
+Module 6
+Companion objects
+Kotlin does not have static methods
+we can have singletons w/"object" keyword
+static functions are effectively singletons
+use of "companion object" allows to get equivalent of static methods
+"object" keyword defines a class and creates an instance
+has properties, methods, initializers
+cannot have a constructor
+object Meetings {
+    var allMeetings = arrayListOf< Meeting >()
+}
+Meetings.allMeetings.add( someMeeting )
 
+I notice he likes starting his val/var names with upper case letter. Is that something he does, or is that a Kotlin thing?
+Singletons can make code harder to test
 
+objects are just classes
+objects can derive from other classes/interfaces (I think here he is taking about these Kotlin single objects in particular)
+can be used where any "instance" is used
+object CaseInsensitiveComparator : Comparator< File > {
+    override fun compare(  ) : Int { }
+}
 
+objects can be declared inside a class
+class Person {
+    object CaseInsensitiveComparator : Comparator< File > {
+        override fun compare(  ) : Int { }
+    }
+}
 
+Kotlin classes do not have static members
+companion objects: used for factory methods and static members
+factories can hide complex initialization
 
+static method:
+class Person {
+    companion object {
+        fun main( args : Array< String > ) {
+        }
+    }
+}
 
+factories:
+class Student {
+    companion object {
+        fun createUndergrad( name : String ) : Undergraduate { ... }
+        fun createPostgrad( name : String ) : Postgraduate { ... }
+    }
+}
 
+Student.createUndergrad( "Simon" ) // calling method on Student class, not an instance
+Student.createPostgrad( "Doctor" )
 
+Our Person class is getting complicated: companion objects, companion object implementing an interface,
+constructors w/optional args
 
