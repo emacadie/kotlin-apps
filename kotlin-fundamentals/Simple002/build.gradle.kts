@@ -38,7 +38,8 @@ application {
     // mainClass.set( "com.programming.kotlin.chapter03.ThirdKt" )
     // mainClass.set( "info.shelfunit.tutorial.module02.PersonRunnerKt" )
     // mainClass.set( "info.shelfunit.tutorial.module03.Module03RunnerKt" )
-    mainClass.set( "info.shelfunit.tutorial.module04.Module04RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module04.Module04RunnerKt" )
+    mainClass.set( "info.shelfunit.tutorial.module05.Module05RunnerKt" )
 
     // mainClass.set( "info.shelfunit.tutorial.AppRunner" )
 }

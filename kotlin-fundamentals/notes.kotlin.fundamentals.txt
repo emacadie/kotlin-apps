@@ -298,6 +298,167 @@ They must have the correct form
 Kotlin optimizes away the recursion
 It turns it into a loop
 
+Module 5: Types
+Interfaces
+Classes
+Inheritance
+Construction
+Data Classes
+
+Interfaces:
+Can have default methods, and properties (doesn't Java do that too?)
+Just like Java
+Interfaces are public by default (same w/classes)
+We made interface Time
+and a class that implements it: YetiTime
+You do this:
+class YetiTime : Time
+Colon is used for both "implements" and "extends" (frankly I prefer words over punctuation)
+But you need to add "override" in front of function when you implement it
+
+If we implement multiple interfaces and they have methods w/same name, we can pick one
+interface A { fun doSomething() = {} }
+interface B { fun doSomething() = {} }
+class Foo : A, B {
+    override fun doSomething() = {
+        super< A >.doSomthing()
+    }
+}
+
+We could also call both parent interfaces' methods
+
+Classes
+Classes in Kotlin are public and final by default (good idea to make classes final by default in Java)
+Supports "abstract" classes
+Sealed classes
+Constructors - can have multiple constructors
+Data classes - "only to manipulate data" (don't all classes do that?)
+
+classes and methods are final by default
+To allow derivation, use "open" keyword
+open class Student : Person {
+    open fun getClasses() {
+        // code
+    }
+}
+
+classes can also be abstract
+For abstract class, you can have abstract functions that child classes must implement
+Can have open and closed functions (closed functions are functions that parent abstract class implements)
+
+visibility: default is public (in java it's "package private", visible to everything in that package)
+Kotlin does have "internal" keyword - makes class visible to everything in that "module"
+it does have "protected" and "private"
+
+Sealed classes:
+used to restrict class hierarchies
+"enums on steriods"
+You limit what can derive from a class
+sealed class Event {
+    class SendEvent( id : Int, to: String ) : Event()
+    class ReceiveEvent( id: Int, from: String ) : Event()
+}
+processed with "when" keyword
+fun handleEvent( e : Event ) =
+    when( e ) {
+        is SendEvent    -> print( e. to )
+        is ReceiveEvent -> print( e.from )
+    }
+
+That code could get messy if multiple ENTIRE classes have to be in one file
+
+Class can have a primary constructor in same line that declares the class
+open class Person( val name : String ) {
+    // other stuff
+}
+
+what about validation?
+You don't need "new" to instantiate
+Just do this:
+val kevin = Person( "Kevin" )
+
+other ways to set up primary constructor:
+open class Person( name : String ) {
+    val name : String
+    init {
+        this.name = name
+    }
+}
+open class Person( _name : String ) {
+    val name = _name
+}
+
+secondary constructors:
+open class Person( name : String ) {
+    constructor( name : String, age: Int ) : this( name ) // initialize the primary constructor
+}
+prefer default
+open class Person( name : String, age = 0 ) {
+}
+
+Calling superclass constructors:
+class Student( name : String ) : Person( name )
+or
+class Student : Person {
+    constructor( name : String ) : super( name )
+}
+
+derived classes must call parent's default constructor if parent has one
+open class Person
+class Student : Person()
+
+private constructors are supported
+used to inhibit constructions (such as a singleton)
+In Kotlin, a better way
+
+class Student( val id : Int ) : Person() {
+    override fun getName() : String {
+        return ""
+    }
+    override fun getAddress(): String {
+        return ""
+    }
+}
+
+class Student( _id : Int ) : Person() {
+    val id = _id
+    override fun getName() : String {
+        return ""
+    }
+    override fun getAddress(): String {
+        return ""
+    }
+}
+
+class Student( _id : Int ) : Person() {
+    val id : Int
+    init {
+        id = _id
+    }
+    override fun getName() : String {
+        return ""
+    }
+    override fun getAddress(): String {
+        return ""
+    }
+}
+
+If you have an arg in secondary constructor but not primary, initialize it in "init" function
+
+Data classes:
+We need to store stuff in collections, need correct implementation of equals, hashCode, toString
+We may just store data in a class, like DTOs
+Data classes can provide equals, hashCode, toString
+usually immutable
+Kotlin generates "copy" keyword to copy classes
+Like Groovy annotations
+data class Meeting( val name : String, val location : String )
+val aMeeting = Meeting( "A Meeting", "London" )
+// we can copy a class and also change one of the fields
+val anotherMeeting = aMeeting.copy( location = "New York" )
+
+
+
 
 
 

@@ -2,9 +2,9 @@ package com.programming.kotlin.chapter03
 
 data class BookPerson ( val firstName: String, val lastName: String, val age: Int? ) {
     init {
-        require(firstName.trim().length > 0 ) {
+        require( firstName.trim().length > 0 ) {
             "Invalid firstName argument." + firstName }
-        require(lastName.trim().length > 0 ) {
+        require( lastName.trim().length > 0 ) {
             "Invalid lastName argument."
         }
         if ( age != null ) {
