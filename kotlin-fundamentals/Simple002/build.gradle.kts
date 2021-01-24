@@ -42,7 +42,8 @@ application {
     // Program has a main function in a companion object
     // its main fun is annotated w/@JvmStatic and must be called as "Program" NOT "ProgramKt"
     // mainClass.set( "info.shelfunit.tutorial.module06.Program" )
-    mainClass.set( "info.shelfunit.tutorial.module07.Module07RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module07.Module07RunnerKt" )
+    mainClass.set( "info.shelfunit.tutorial.module08.Module08RunnerKt" )
 
 }
 val compileKotlin: KotlinCompile by tasks

@@ -558,5 +558,19 @@ used to make certain operations more natural
 Look like language keywords
 They are actually methods in Kotlin std lib whose last parameter is a lambda
 
+I am surprised he did not spend more time on map, reduce, filter
 
+chapter 08: Filtering and sorting data
+filter: transforms collections, to filter out unwanted items
+like "where" in SQL
+map: transforms items, like "select" in SQL
 
+predicate: lambdas that return a boolean
+functions that take a predicate:
+all
+any
+count
+find
+
+map and filter create intermediate lists
+use sequences to avoid memory issues
