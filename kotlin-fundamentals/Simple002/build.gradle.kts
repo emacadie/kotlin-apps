@@ -43,7 +43,8 @@ application {
     // its main fun is annotated w/@JvmStatic and must be called as "Program" NOT "ProgramKt"
     // mainClass.set( "info.shelfunit.tutorial.module06.Program" )
     // mainClass.set( "info.shelfunit.tutorial.module07.Module07RunnerKt" )
-    mainClass.set( "info.shelfunit.tutorial.module08.Module08RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module08.Module08RunnerKt" )
+    mainClass.set( "info.shelfunit.tutorial.module09.Module09RunnerKt" )
 
 }
 val compileKotlin: KotlinCompile by tasks

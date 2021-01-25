@@ -574,3 +574,48 @@ find
 
 map and filter create intermediate lists
 use sequences to avoid memory issues
+
+module 9: working w/infinite collections
+filter and map create intermeditate lists
+those can get large, so use sequences
+sequences are lazily evaluated
+val titles = meetings
+    .asSequence()
+    .filter { it -> it.title.startsWith( "C" ) }
+    .map { m -> m.title }
+without "asSequence"
+"filter" is called for each item, then "map" is called for each item
+In Module09Runner
+without asSequence:
+Hello from Module09Runner
+filtering Board Meeting
+filtering Committee Meeting
+filtering City Council Meeting
+filtering Meet with Reporter
+mapping Board Meeting
+mapping Committee Meeting
+mapping City Council Meeting
+With asSequence:
+Hello from Module09Runner
+filteredTitles: kotlin.sequences.TransformingSequence@52cc8049
+filtering Board Meeting
+mapping Board Meeting
+filtering Committee Meeting
+mapping Committee Meeting
+filtering City Council Meeting
+mapping City Council Meeting
+filtering Meet with Reporter
+
+sequences has intermediate operations and terminal operations
+You must apply a terminal operation
+Like calling toList
+or use sequence w/a for loop
+Sequence filters and then maps each item
+Without sequece, filter the whole thing, map the whole thing, print the whole thing
+
+Evaluation starts w/a terminal operation
+
+Sequences are like Java 8 Streams
+But Streams are not available everywhere (like Android)
+
+
