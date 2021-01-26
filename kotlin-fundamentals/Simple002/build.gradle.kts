@@ -44,8 +44,12 @@ application {
     // mainClass.set( "info.shelfunit.tutorial.module06.Program" )
     // mainClass.set( "info.shelfunit.tutorial.module07.Module07RunnerKt" )
     // mainClass.set( "info.shelfunit.tutorial.module08.Module08RunnerKt" )
-    mainClass.set( "info.shelfunit.tutorial.module09.Module09RunnerKt" )
-
+    // mainClass.set( "info.shelfunit.tutorial.module09.Module09RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module10.Module10RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module11.Module11RunnerKt" )
+    // has null pointer exception
+    // mainClass.set( "info.shelfunit.tutorial.module11.Organizer" )
+    mainClass.set( "info.shelfunit.tutorial.module12.Module12RunnerKt" )
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {

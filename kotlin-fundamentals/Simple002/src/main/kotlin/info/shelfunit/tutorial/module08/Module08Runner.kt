@@ -110,5 +110,5 @@ fun main( args : Array< String > ) {
     // filterAndMapMeetings()
     // workWithPredicates()
     // workWithMapAndFlatMap()
-} // fun mand
+} // fun main
 

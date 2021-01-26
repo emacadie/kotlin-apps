@@ -618,4 +618,106 @@ Evaluation starts w/a terminal operation
 Sequences are like Java 8 Streams
 But Streams are not available everywhere (like Android)
 
+module 10
+working w/Java Functional Interfaces (Single Abstract Method)
+usually used as event firers
+prior to Java 8, you wold pass anonymous object
+Kotlin Lambdas are interoperable
+
+This section is kind of flying past me. Not sure I see the point at the moment.
+
+SAM Constructors: What if compiler cannot convert lambda to functional interface?
+it is a compiler generated function
+useful to return a lambda from a method call
+easy to pass Kotlin lambdas to Java methods
+use SAM constructors if type is ambiguous
+
+Module11
+Using Kotlin's nullability constraints to improve code
+Java needs lots of defensive code
+Kotlin has nullable types
+Only certain variables can be null. You decide that when you create/instantiate stuff
+
+boolean closeMeeting( Meeting argMeeting ) {
+    if ( argMeeting.canClose() ) {
+        return argMeeting.close();
+    }
+    return false;
+}
+Is this function safe? What if argMeeting is null? Can null be passed? Do we need null checks?
+Kotlin version:
+fun closeMeeting( m : Meeting ) : Boolean {
+    return if ( m.canClose() ) m.close()
+        else false
+}
+In Java, you would get null pointer exception
+In Kotlin, we could compiler error
+Code does not compile
+The code is checked at compile time
+
+What if you want to allow null?
+Variable can be declared to accept null (not accepting is default)
+Put "?" after type name
+val m:Meeting?
+So here is what would cause an error:
+val m:Meeting? = null
+m.close()
+You would need to call "m?.close()" instead of "m.close()"
+
+val m:Meeting? = null
+val newMeeting = Meeting()
+newMeeting = m // you cannot do this
+So a Meeting and a nullable Meeting are actually 2 different types
+
+Safe call: m?.method()
+Only called if m is not null
+Kotlin has the "Elvis operator"
+newMeeting = m ?: Meeting()
+also known as "null-coalescing" operator
+
+safe case operator "as?"
+val savable = o as? ISaveable
+casts to type or return null
+then use "?" on the return value
+Not-Null assertion: !!
+m!!.close()
+very blunt instrument
+asserts that something is not null. otherwise null pointer exception is thrown at that point, not later
+
+Our Java code in module11:
+Exception in thread "main" java.lang.NullPointerException
+        at info.shelfunit.tutorial.module11.Organizer.closeMeeting(Organizer.java:5)
+        at info.shelfunit.tutorial.module11.Organizer.main(Organizer.java:13)
+
+"let" function
+we rely the function to do null checks
+but what if a function does not check?
+use let: to avoid explicit null checks
+useful when passing Nullable values to functions expecting non-null values
+m?.let { closeMeetingNonNull( m ) }
+"let" is a bad name in my opinion, given what "let" does in Lisp
+
+late initialized properties:
+sometimes values cannot be initialized when declared
+You could mark them as Nullable
+use "lateinit" instead
+compiler keyword
+
+Module 12: Working w/Kotlin nullability in Java
+Kotlin understands Java annotations
+https://docs.oracle.com/javaee/7/api/index.html?javax/validation/constraints/NotNull.html
+Nullable, NotNull, javax.annotation, android.support.annotation, org.jetbrains.annotation
+
+What if there are no annotations?
+Then we work with "platform types" (those have exclamation marks at the end)
+Then it is up to developer
+is "platform type" his term?
+
+can we override Java types?
+we can make the parameters Nullable or not
+In Module12Runner: implementations of JAddress use nullable and non-nullable Strings, and both work
+
+
+
+
 
