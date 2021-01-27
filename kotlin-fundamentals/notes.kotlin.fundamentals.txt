@@ -1,5 +1,12 @@
 Going w/ project Simple002
 
+Run gradle w/args:
+This works:
+gradle run --args="foo --bar" -PekmMain="info.shelfunit.tutorial.module13.Module13RunnerKt"
+Or:
+gradle run --args="foo --bar" -PmainClass="info.shelfunit.tutorial.module13.Module13RunnerKt"
+
+
 Installation/intro
 Object-oriented features
 Functional language features
@@ -717,7 +724,37 @@ can we override Java types?
 we can make the parameters Nullable or not
 In Module12Runner: implementations of JAddress use nullable and non-nullable Strings, and both work
 
+Module 13: Collections
+Can be nullable, can hold null values, can be read-only or mutable
 
+Helpful methods to create collections:
+listOf, setOf, mapOf
+Is he talking about this?
+https://devdocs.io/kotlin/api/latest/jvm/stdlib/kotlin.collections/list-of
+What packages does Kotlin automatically import?
+We can be more specific: arrayListOf, hashSetOf, hashMapOf
+mutableListOf
 
+We can do this:
+val people = listOf< Person >()
+val people = List< Person? >()
+val people = List< Person? >? = null // makes the list null
+
+listOf is read-only. You cannot add to it later.
+
+Collections have a method filterNotNull
+
+We can use Java collections in Kotlin
+But in general, Java does not distinguish between mutable and immutable collections
+You can create them in Java, check is done at runtime. In Kotlin, it is done at compile time
+
+Arrays in Kotlin
+Array is a class with a type parameter
+Can create array with:
+arrayOf
+arrayOfNulls
+Array() function
+Each primitive type has an array: IntArray, CharArray, StringArray
+Kotlin provides same functions on arrays as on collections
 
 

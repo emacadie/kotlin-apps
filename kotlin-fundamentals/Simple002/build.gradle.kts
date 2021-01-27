@@ -27,8 +27,15 @@ tasks.test {
     useJUnit()
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "9"
+tasks.withType< KotlinCompile >() {
+    kotlinOptions.jvmTarget = "11"
+}
+
+tasks.run {
+    if ( project.hasProperty( "mainArgs" ) ) {
+        println( "We have main" )
+
+    }
 }
 
 application {
@@ -49,15 +56,35 @@ application {
     // mainClass.set( "info.shelfunit.tutorial.module11.Module11RunnerKt" )
     // has null pointer exception
     // mainClass.set( "info.shelfunit.tutorial.module11.Organizer" )
-    mainClass.set( "info.shelfunit.tutorial.module12.Module12RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module12.Module12RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module13.Module13RunnerKt" )
+
+    if ( project.hasProperty( "mainArgs" ) ) {
+        println( "We have mainArgs" )
+        println( project.findProperty( "mainArgs" ) )
+        // project.set
+    }
+    if ( project.hasProperty( "ekmMain" ) ) {
+        println( "We have ekmMain" )
+        // println( project.findProperty( "mainArgs" ) )
+        mainClass.set( project.findProperty( "ekmMain" ).toString() )
+        // project.set
+    }
+    if ( project.hasProperty( "mainClass" ) ) {
+        println( "We have mainClass" )
+        // println( project.findProperty( "mainArgs" ) )
+        mainClass.set( project.findProperty( "mainClass" ).toString() )
+        // project.set
+    }
+
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "11"
 }
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.11"
+    jvmTarget = "11"
 }
 
 
