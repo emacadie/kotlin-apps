@@ -1,0 +1,21 @@
+    // mainClassName = "cli.app.AppKt"
+    // mainClass.set( "info.shelfunit.tutorial.AppRunner" )
+    // mainClass.set( "info.shelfunit.tutorial.module02.PersonRunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module03.Module03RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module04.Module04RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module05.Module05RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module06.Module06RunnerKt" )
+    // Program has a main function in a companion object
+    // its main fun is annotated w/@JvmStatic and must be called as "Program" NOT "ProgramKt"
+    // mainClass.set( "info.shelfunit.tutorial.module06.Program" )
+    // mainClass.set( "info.shelfunit.tutorial.module07.Module07RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module08.Module08RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module09.Module09RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module10.Module10RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module11.Module11RunnerKt" )
+    // has null pointer exception
+    // mainClass.set( "info.shelfunit.tutorial.module11.Organizer" )
+    // mainClass.set( "info.shelfunit.tutorial.module12.Module12RunnerKt" )
+    // mainClass.set( "info.shelfunit.tutorial.module13.Module13RunnerKt" )
+
+gradle run --args="foo --bar" -PmainClass="info.shelfunit.tutorial.module13.Module13RunnerKt"
