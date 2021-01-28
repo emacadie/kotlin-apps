@@ -757,4 +757,31 @@ Array() function
 Each primitive type has an array: IntArray, CharArray, StringArray
 Kotlin provides same functions on arrays as on collections
 
+Module 14
+Higher-Order functions: A function that takes another as an argument
+Function that takes no args
+val action = { println( "Hello world" ) }
+function that takes 2 args and "->" means "goes to"
+val calc = { x : Int, y : Int -> x * y }
+we can also specify the args and return types:
+val action: () -> Unit = { println( "Hello world" ) }
+val calc: ( Int, Int ) -> Int = { x, y -> x * y }
+Calling functions:
+fun < T > first( items : List< T >, predicate: ( T ) -> Boolean ) : T {
+    for ( item in items ) {
+        if ( predicate ( item ) ) return item
+    }
+}
+
+Lambdas compiled to anonymous classes
+A class is created each time. Expensive.
+We can inline the function call using "inline" keyword
+The difference is in the bytecode.
+He uses FernFlower decompiler to show the difference.
+
+You can inline if the lambda is used directly.
+A lambda cannot be inlined if it is stored in a variable for later use.
+Kotlin collection operations are inlined (map, filter)
+but not when they are used in a sequence
+
 
