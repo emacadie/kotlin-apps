@@ -784,4 +784,62 @@ A lambda cannot be inlined if it is stored in a variable for later use.
 Kotlin collection operations are inlined (map, filter)
 but not when they are used in a sequence
 
+Module 15: Kotlin's improved generic support
+declaring generics
+reified types
+varaince
+
+Kotlin can infer type:
+val meetings = listOf( Meeting( "Board" ), Meeting( "Finance" ) )
+val meetings = mutableListOf< Meeting >()
+val meetings : List < Meeting > = mutableListOf()
+
+declare generic function ("T" is for type, that's what it means to me):
+fun < T > List< T >.itemAt( ndx : Int ) : T {}
+declare generic classes:
+class Node< T > ( private val item : T ) {
+    fun value() : T {
+        return item
+    }
+}
+
+we can constrain the type parameter, especially if we know it will be a particular class or derived/inherited from it
+class Node< T : Number > ( private val item : T ) {
+    fun value() : T {
+        return item
+    }
+}
+
+Java erases all generic type information at run-time
+Kotlin can "reify" some generic information
+reify: to make real
+Generally, types are erased
+there is a keyword, only works on inline functions
+this causes an error:
+fun < T > foo( value : Any ) = value is T
+You can do this:
+inline fun < reified T > foo foo( value : Any ) = value is T
+
+Generic variance in Kotlin
+Types have a relationship: Student is a sub type of Person
+Generic types have a more complex relationship
+is List< Student > a subtype of List< Person >?
+Variance determines whether a subtype can be used in place of a type
+You can't add a Meeting to a list of FinanceMeetings
+Java Variance: uses "Super" and "Extends"
+Josh Block talkes about PECS
+Producer Extends, Consumer uses Super
+use site variance
+In Kotlin, use "in" and "out" keywords
+Declaration site variance
+Kotlin also supports 'use site' variance
+Covariant: derived type can be used where base type is more specific
+In Kotlin mark the type parameter as "out"
+Contravariant: Base type can be used where derived type is more specific
+In Kotlin mark the type parameter as "in"
+
+I am not sure I get variance. Moving on for now
+
+
+
 
